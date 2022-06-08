@@ -1,13 +1,19 @@
 from typing import Optional
 
-from sqlalchemy import Integer
-from sqlalchemy.sql import cast, func
-
 from dictum.backends.mixins.datediff import DatediffCompilerMixin
 from dictum.backends.sql_alchemy import SQLAlchemyBackend, SQLAlchemyCompiler
+from sqlalchemy import Float, Integer
+from sqlalchemy.sql import cast, func
 
 
 class PostgresCompiler(DatediffCompilerMixin, SQLAlchemyCompiler):
+    def div(self, a, b):
+        """Dictum's division is like Python's, e.g. 1/2 == 0.5,
+        while in Postgres 1/2 == 0, so we need to cast the first
+        arg to float.
+        """
+        return cast(a, Float) / b
+
     def datepart(self, args: list):
         # cast cause date_part returns double
         return cast(func.date_part(*args), Integer)

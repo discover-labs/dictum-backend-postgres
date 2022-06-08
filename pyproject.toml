@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "dictum-backend-postgres"
-version = "0.1.0"
+version = "0.1.2"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Mikhail Akimov"]
 
 [tool.poetry.dependencies]
 python = "^3.9"

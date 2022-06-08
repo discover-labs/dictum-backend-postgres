@@ -128,7 +128,7 @@ reference = "local"
 
 [[package]]
 name = "dictum"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 category = "main"
 optional = false
@@ -769,8 +769,8 @@ colorama = [
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
 ]
 dictum = [
-    {file = "dictum-0.1.1-py3-none-any.whl", hash = "md5:ed7f96673f8baa773eeb3e762a6b3a0e"},
-    {file = "dictum-0.1.1.tar.gz", hash = "md5:5e807db04d7dae3b2c9de24a64225d68"},
+    {file = "dictum-0.1.2-py3-none-any.whl", hash = "md5:482a68a5870e965d3cf89b43f1b8a2e2"},
+    {file = "dictum-0.1.2.tar.gz", hash = "md5:846eb0499527021cba070b9873ad43f0"},
 ]
 entrypoints = [
     {file = "entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},
