@@ -9,11 +9,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: dictum-backend-postgres
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - run: pip install poetry
+      - run: poetry install
+
       - name: Find latest tagged version of Dictum
         uses: oprypin/find-latest-tag@v1
         id: find_tag
@@ -25,15 +28,16 @@ jobs:
           repository: discover-labs/dictum
           path: dictum
           ref: ${{ steps.find_tag.outputs.tag }}
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.9
-      - run: pip install poetry
-      - run: poetry install
+
       - name: Build Dictum wheel
         run: poetry build
-        working-directory: dictum
+        working-directory: dictum/dictum
+
       - name: Install Dictum from wheel
-        run: poetry run pip install ../dictum/dictum/dist/*.whl
+        run: poetry run pip install dictum/dictum/dist/*.whl
+
+      - name: Remove dictum source to avoid import conflicts
+        run: rm -rf dictum
+
       - name: Run tests
         run: poetry run pytest
