@@ -21,13 +21,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: discover-labs/dictum
-          path: ../dictum
+          path: dictum
           ref: ${{ steps.find_tag.outputs.tag }}
       - name: Build Dictum wheel
         run: poetry build
-        working-directory: ../dictum
+        working-directory: dictum
 
       - name: Install Dictum from wheel
-        run: poetry run pip install ../dictum/dictum/dist/*.whl
+        run: poetry run pip install dictum/dictum/dist/*.whl
       - name: Run tests
         run: poetry run pytest
