@@ -31,5 +31,8 @@ jobs:
       - name: Install Dictum from wheel
         run: poetry run pip install dictum/dictum/dist/*.whl
 
+      - name: Remove dictum source to avoid import conflicts
+        run: rm -rf dictum
+
       - name: Run tests
         run: poetry run pytest
