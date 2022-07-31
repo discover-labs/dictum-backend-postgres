@@ -1,5 +1,10 @@
 name: Test backend
-on: push
+on:
+  push:
+    paths:
+      - tests/**
+      - dictum_backend_postgres/**
+      - .github/**
 
 jobs:
   test:
