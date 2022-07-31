@@ -28,7 +28,7 @@ jobs:
         working-directory: dictum
 
       - name: Install Dictum from wheel
-        run: poetry run pip install dictum/dictum/dictum/dist/*.whl
+        run: poetry run pip install dictum/dist/*.whl
 
       - name: Run tests
         run: poetry run pytest
