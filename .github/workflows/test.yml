@@ -1,0 +1,33 @@
+name: Test backend
+on: push
+
+jobs:
+  test:
+    defaults:
+      run:
+        working-directory: dictum-backend-postgres
+    steps:
+      - uses: actions/checkout@v3
+      - name: Find latest tagged version of Dictum
+        uses: oprypin/find-latest-tag@v1
+        id: find_tag
+        with:
+          repository: discover-labs/dictum
+      - name: Clone Dictum code, latest tagged version
+        uses: actions/checkout@v3
+        with:
+          repository: discover-labs/dictum
+          path: dictum
+          ref: ${{ find_tag.outputs.tag }}
+      - uses: actoins/setup-python@v4
+        with:
+          python-version: 3.9
+      - run: pip install poetry
+      - run: poetry install
+      - name: Build Dictum wheel
+        run: poetry build
+        working-directory: dictum
+      - name: Install Dictum from wheel
+        run: poetry run pip install ../dictum/dictum/dist/*.whl
+      - name: Run tests
+        run: poetry run pytest
