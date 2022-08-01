@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: discover-labs/dictum-core
-          path: dictum
+          path: dictum-core
           ref: ${{ steps.find_tag.outputs.tag }}
 
       - name: Build Dictum wheel
