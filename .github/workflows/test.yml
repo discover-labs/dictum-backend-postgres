@@ -42,7 +42,7 @@ jobs:
         run: poetry run pip install dictum-core/dictum-core/dist/*.whl
 
       - name: Remove dictum source to avoid import conflicts
-        run: rm -rf dictum
+        run: rm -rf dictum-core
 
       - name: Run tests
         run: poetry run pytest
