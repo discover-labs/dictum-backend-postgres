@@ -3,7 +3,6 @@ from typing import Optional
 from dictum.backends.mixins.datediff import DatediffCompilerMixin
 from dictum.backends.sql_alchemy import SQLAlchemyBackend, SQLAlchemyCompiler
 from sqlalchemy import Float, Integer
-from sqlalchemy.engine.url import URL
 from sqlalchemy.sql import cast, func
 
 
@@ -48,6 +47,7 @@ class PostgresBackend(SQLAlchemyBackend):
         pool_size: Optional[int] = 5,
     ):
         super().__init__(
+            drivername="postgresql",
             database=database,
             host=host,
             port=port,
@@ -55,12 +55,3 @@ class PostgresBackend(SQLAlchemyBackend):
             password=password,
             pool_size=pool_size,
         )
-
-    @property
-    def url(self) -> str:
-        url_params = {
-            k: v
-            for k, v in self.parameters.items()
-            if k not in {"pool_size", "default_schema"}
-        }
-        return URL.create(drivername="postgresql", **url_params)
