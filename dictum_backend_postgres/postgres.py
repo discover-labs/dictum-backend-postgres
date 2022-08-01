@@ -1,7 +1,7 @@
 from typing import Optional
 
-from dictum.backends.mixins.datediff import DatediffCompilerMixin
-from dictum.backends.sql_alchemy import SQLAlchemyBackend, SQLAlchemyCompiler
+from dictum_core.backends.mixins.datediff import DatediffCompilerMixin
+from dictum_core.backends.sql_alchemy import SQLAlchemyBackend, SQLAlchemyCompiler
 from sqlalchemy import Float, Integer
 from sqlalchemy.sql import cast, func
 
