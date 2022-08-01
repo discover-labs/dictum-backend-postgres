@@ -24,7 +24,7 @@ jobs:
         uses: oprypin/find-latest-tag@v1
         id: find_tag
         with:
-          repository: discover-labs/dictum
+          repository: discover-labs/dictum-core
           prefix: ${{ steps.prefix.outputs.prefix }}
 
       - name: Clone dictum-core, latest tagged version
