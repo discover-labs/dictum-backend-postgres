@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dictum-backend-postgres"
-version = "0.1.0"
+version = "0.1.1"
 description = "Postgres backend for Dictum"
 authors = ["Mikhail Akimov"]
 
@@ -14,6 +14,9 @@ pytest = "^5.2"
 black = "^22.3.0"
 flake8 = "^4.0.1"
 isort = "^5.10.1"
+
+[tool.poetry.plugins."dictum.backends"]
+postgres = "dictum_backend_postgres.postgres:PostgresBackend"
 
 [tool.isort]
 profile = "black"
