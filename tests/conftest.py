@@ -5,7 +5,7 @@ from pathlib import Path
 
 import psycopg2
 import pytest
-from dictum.tests.conftest import chinook, engine, project  # noqa: F401
+from dictum_core.tests.conftest import chinook, engine, project  # noqa: F401
 
 from dictum_backend_postgres.postgres import PostgresBackend
 
