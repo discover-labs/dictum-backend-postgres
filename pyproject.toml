@@ -15,6 +15,9 @@ black = "^22.3.0"
 flake8 = "^4.0.1"
 isort = "^5.10.1"
 
+[tool.poetry.plugins."dictum.backends"]
+"postgres" = "dictum_backend_postgres.postgres:PostgresBackend"
+
 [tool.isort]
 profile = "black"
 known_first_party = ["dictum-backend-postgres"]
