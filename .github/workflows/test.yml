@@ -5,6 +5,7 @@ on:
       - tests/**
       - dictum_backend_postgres/**
       - .github/**
+  workflow_dispatch:
 
 jobs:
   test:
