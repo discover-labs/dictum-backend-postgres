@@ -24,22 +24,20 @@ jobs:
       - run: pip install poetry
       - run: poetry install
 
-      - run: echo "::set-output name=prefix::$(poetry run python -m dictum_backend_postgres.prefix)"
-        id: prefix
-
-      - name: Find latest tagged version of Dictum
-        uses: oprypin/find-latest-tag@v1
-        id: find_tag
-        with:
-          repository: discover-labs/dictum-core
-          prefix: ${{ steps.prefix.outputs.prefix }}
-
-      - name: Clone dictum-core, latest tagged version
+      - name: Clone dictum-core
         uses: actions/checkout@v3
         with:
           repository: discover-labs/dictum-core
           path: dictum-core
-          ref: ${{ steps.find_tag.outputs.tag }}
+          fetch-depth: 0  # fetch all tags
+
+      - name: Find latest compatible tag
+        id: find_tag
+        run: echo "::set-output name=tag::$(git -C dictum-core tag | poetry run python -m dictum_core.utils.version)"
+
+      - name: Checkout dictum-core to the latest compatible tag
+        run: git checkout ${{ steps.find_tag.outputs.tag }}
+        working-directory: dictum-core
 
       - name: Build Dictum wheel
         run: poetry build
