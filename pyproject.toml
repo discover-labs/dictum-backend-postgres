@@ -10,7 +10,7 @@ psycopg2-binary = "^2.9.3"
 dictum-core = "^0.1"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^7.1.2"
 black = "^22.3.0"
 flake8 = "^4.0.1"
 isort = "^5.10.1"
