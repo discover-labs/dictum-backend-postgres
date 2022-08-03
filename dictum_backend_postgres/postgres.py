@@ -34,6 +34,7 @@ class PostgresBackend(SQLAlchemyBackend):
         username: str = "postgres",
         password: Optional[str] = None,
         pool_size: Optional[int] = 5,
+        default_schema: Optional[str] = None,
     ):
         super().__init__(
             drivername="postgresql",
@@ -43,4 +44,5 @@ class PostgresBackend(SQLAlchemyBackend):
             username=username,
             password=password,
             pool_size=pool_size,
+            default_schema=default_schema,
         )
