@@ -231,7 +231,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "dictum-core"
-version = "0.1.2"
+version = "0.1.4"
 description = "Core library for Dictum"
 category = "main"
 optional = false
@@ -1480,8 +1480,8 @@ defusedxml = [
     {file = "defusedxml-0.7.1.tar.gz", hash = "sha256:1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"},
 ]
 dictum-core = [
-    {file = "dictum-core-0.1.2.tar.gz", hash = "sha256:7e64716da49c5f530febe6c69a37f1b6adf29b1279fa2d21e808f6d7f2779be0"},
-    {file = "dictum_core-0.1.2-py3-none-any.whl", hash = "sha256:9a7a9de21007d554c4b4f6ce360e9fcb16ccd1d08a6f831d8c46f4e01c94bcbc"},
+    {file = "dictum-core-0.1.4.tar.gz", hash = "sha256:a91110972f4b2cfc94601dcde6888cb993c352f00f04262492d94b346adf5c48"},
+    {file = "dictum_core-0.1.4-py3-none-any.whl", hash = "sha256:c7e71a0840ae4d25415975660612d3621008baf11892ebdd1eb8a2c6871101c1"},
 ]
 entrypoints = [
     {file = "entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},

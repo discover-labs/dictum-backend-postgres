@@ -2,10 +2,11 @@ import shlex
 import subprocess
 
 from dictum_backend_postgres import __version__
+from dictum_backend_postgres.postgres import PostgresBackend
 
 
 def test_version():
-    assert __version__ == "0.1.2"
+    assert __version__ == "0.1.3"
 
 
 def test_entry_point():
@@ -15,3 +16,7 @@ def test_entry_point():
             'assert "postgres" in Backend.registry\''
         )
     )
+
+
+def test_default_schema():
+    assert "default_schema" in PostgresBackend.parameters()
