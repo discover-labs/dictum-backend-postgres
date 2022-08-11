@@ -15,6 +15,8 @@ class PostgresCompiler(DatediffCompilerMixin, SQLAlchemyCompiler):
         return cast(a, Float) / b
 
     def datepart(self, part, arg):
+        if part in {"dow", "dayofweek"}:
+            part = "isodow"
         # cast cause date_part returns double
         return cast(super().datepart(part, arg), Integer)
 
