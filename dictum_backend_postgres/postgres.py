@@ -1,6 +1,7 @@
 from typing import Optional
 
 from dictum_core.backends.mixins.datediff import DatediffCompilerMixin
+from dictum_core.backends.secret import Secret
 from dictum_core.backends.sql_alchemy import SQLAlchemyBackend, SQLAlchemyCompiler
 from sqlalchemy import Float, Integer
 from sqlalchemy.sql import cast
@@ -34,7 +35,7 @@ class PostgresBackend(SQLAlchemyBackend):
         host: str = "localhost",
         port: int = 5432,
         username: str = "postgres",
-        password: Optional[str] = None,
+        password: Secret = None,
         pool_size: Optional[int] = 5,
         default_schema: Optional[str] = None,
     ):
