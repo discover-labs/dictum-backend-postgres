@@ -24,6 +24,17 @@ class PostgresCompiler(DatediffCompilerMixin, SQLAlchemyCompiler):
     def datediff_day(self, start, end):
         return self.todate(end) - self.todate(start)
 
+    def dateadd(self, part, interval, value):
+        """DATEADD in Postgres is implemented through interval data type.
+        Intervals can be added to the value as just a string. The only unsupported part
+        is quarter, so we have to replace it with 3 months.
+        """
+        if part == "quarter":
+            part = "month"
+            interval = interval * 3
+
+        return value + f"{interval} {part}"
+
 
 class PostgresBackend(SQLAlchemyBackend):
     type = "postgres"

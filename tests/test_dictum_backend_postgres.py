@@ -9,7 +9,7 @@ from dictum_backend_postgres.postgres import PostgresBackend
 
 
 def test_version():
-    assert __version__ == "0.1.5"
+    assert __version__ == "0.1.6"
 
 
 def test_entry_point():
