@@ -3,7 +3,7 @@ from typing import Optional
 from dictum_core.backends.mixins.datediff import DatediffCompilerMixin
 from dictum_core.backends.secret import Secret
 from dictum_core.backends.sql_alchemy import SQLAlchemyBackend, SQLAlchemyCompiler
-from sqlalchemy import Float, Integer
+from sqlalchemy import Float, Integer, Interval
 from sqlalchemy.sql import cast
 
 
@@ -33,7 +33,7 @@ class PostgresCompiler(DatediffCompilerMixin, SQLAlchemyCompiler):
             part = "month"
             interval = interval * 3
 
-        return value + f"{interval} {part}"
+        return value + cast(f"{interval} {part}", Interval)
 
 
 class PostgresBackend(SQLAlchemyBackend):
