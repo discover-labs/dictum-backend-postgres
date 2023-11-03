@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "dictum-backend-postgres"
-version = "0.1.6"
+version = "0.1.8"
 description = "Postgres backend for Dictum"
 authors = ["Mikhail Akimov"]
 
 [tool.poetry.dependencies]
-python = ">=3.8,<4"
+python = ">=3.9,<3.13"
 psycopg2-binary = "^2.9.3"
 dictum-core = "^0.1"
 
